@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -35,6 +36,9 @@ public class Horario {
 	
 	@NotNull(message = "Informe o valor do horário!")
 	private double vlHorario;
+	
+	@OneToOne(mappedBy = "horario", cascade = CascadeType.ALL)
+	private Pagamento pagamento;
 	
 	public long getIdHorario() {
 		return idHorario;
@@ -65,5 +69,11 @@ public class Horario {
 	}
 	public void setVlHorario(double vlHorario) {
 		this.vlHorario = vlHorario;
+	}
+	public Pagamento getPagamento() {
+		return pagamento;
+	}
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
 	}
 }

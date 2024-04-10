@@ -2,6 +2,8 @@ package app.entity;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,11 +24,14 @@ public class Pagamento {
 	private LocalDateTime dtPagamento;
 	
 	@NotNull(message = "Informe o horário do pagamento!")
+	@OneToOne
+    @JoinColumn(name = "idHorario", referencedColumnName = "idHorario")
 	private Horario horario;
 	
-	@NotNull(message = "Informe a forma de pagamento!")
 	@ManyToOne()
-	@JoinColumn()
+	@JoinColumn(name = "idFormaPagto")
+	@JsonIgnoreProperties("pagamentos")
+	@NotNull(message = "Informe a forma de pagamento!")
 	private FormaPagamento formaPagamento;
 	
 	@NotBlank(message = "Informe a situação do paganento!")
