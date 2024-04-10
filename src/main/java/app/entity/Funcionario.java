@@ -1,5 +1,6 @@
 package app.entity;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -42,6 +43,33 @@ public class Funcionario {
 		return idFuncionario;
 	}
 	public void setIdFuncionario(int idFuncionario) {
+=======
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+public class Funcionario {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idFuncionario;
+	
+	private String nmFuncionario;
+	
+	private String tpFuncionario;
+	
+	private String dsCpf;
+	
+	private String dsLogin;
+	
+	private String dsSenha;
+	
+	
+	public long getIdFuncionario() {
+		return idFuncionario;
+	}
+	public void setIdFuncionario(long idFuncionario) {
+>>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
 		this.idFuncionario = idFuncionario;
 	}
 	public String getNmFuncionario() {
@@ -50,11 +78,19 @@ public class Funcionario {
 	public void setNmFuncionario(String nmFuncionario) {
 		this.nmFuncionario = nmFuncionario;
 	}
+<<<<<<< HEAD
 	public boolean isFlAdmin() {
 		return flAdmin;
 	}
 	public void setFlAdmin(boolean flAdmin) {
 		this.flAdmin = flAdmin;
+=======
+	public String getTpFuncionario() {
+		return tpFuncionario;
+	}
+	public void setTpFuncionario(String tpFuncionario) {
+		this.tpFuncionario = tpFuncionario;
+>>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
 	}
 	public String getDsCpf() {
 		return dsCpf;
@@ -62,11 +98,19 @@ public class Funcionario {
 	public void setDsCpf(String dsCpf) {
 		this.dsCpf = dsCpf;
 	}
+<<<<<<< HEAD
 	public String getDsEmail() {
 		return dsEmail;
 	}
 	public void setDsEmail(String dsEmail) {
 		this.dsEmail = dsEmail;
+=======
+	public String getDsLogin() {
+		return dsLogin;
+	}
+	public void setDsLogin(String dsLogin) {
+		this.dsLogin = dsLogin;
+>>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
 	}
 	public String getDsSenha() {
 		return dsSenha;
@@ -74,10 +118,13 @@ public class Funcionario {
 	public void setDsSenha(String dsSenha) {
 		this.dsSenha = dsSenha;
 	}
+<<<<<<< HEAD
 	public List<Horario> getHorarios() {
 		return horarios;
 	}
 	public void setHorarios(List<Horario> horarios) {
 		this.horarios = horarios;
 	}
+=======
+>>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
 }
