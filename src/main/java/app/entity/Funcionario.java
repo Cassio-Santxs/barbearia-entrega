@@ -1,6 +1,5 @@
 package app.entity;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -18,7 +17,7 @@ import jakarta.validation.constraints.NotNull;
 public class Funcionario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idFuncionario;
+	private Long idFuncionario;
 	
 	@NotBlank(message = "Informe o nome do Funcionário!")
 	private String nmFuncionario;
@@ -38,93 +37,60 @@ public class Funcionario {
 	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
 	@JsonBackReference
 	private List<Horario> horarios;
-	
-	public int getIdFuncionario() {
-		return idFuncionario;
-	}
-	public void setIdFuncionario(int idFuncionario) {
-=======
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-public class Funcionario {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idFuncionario;
-	
-	private String nmFuncionario;
-	
-	private String tpFuncionario;
-	
-	private String dsCpf;
-	
-	private String dsLogin;
-	
-	private String dsSenha;
-	
-	
-	public long getIdFuncionario() {
+	public Long getIdFuncionario() {
 		return idFuncionario;
 	}
-	public void setIdFuncionario(long idFuncionario) {
->>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
+
+	public void setIdFuncionario(Long idFuncionario) {
 		this.idFuncionario = idFuncionario;
 	}
+
 	public String getNmFuncionario() {
 		return nmFuncionario;
 	}
+
 	public void setNmFuncionario(String nmFuncionario) {
 		this.nmFuncionario = nmFuncionario;
 	}
-<<<<<<< HEAD
+
 	public boolean isFlAdmin() {
 		return flAdmin;
 	}
+
 	public void setFlAdmin(boolean flAdmin) {
 		this.flAdmin = flAdmin;
-=======
-	public String getTpFuncionario() {
-		return tpFuncionario;
 	}
-	public void setTpFuncionario(String tpFuncionario) {
-		this.tpFuncionario = tpFuncionario;
->>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
-	}
+
 	public String getDsCpf() {
 		return dsCpf;
 	}
+
 	public void setDsCpf(String dsCpf) {
 		this.dsCpf = dsCpf;
 	}
-<<<<<<< HEAD
+
 	public String getDsEmail() {
 		return dsEmail;
 	}
+
 	public void setDsEmail(String dsEmail) {
 		this.dsEmail = dsEmail;
-=======
-	public String getDsLogin() {
-		return dsLogin;
 	}
-	public void setDsLogin(String dsLogin) {
-		this.dsLogin = dsLogin;
->>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
-	}
+
 	public String getDsSenha() {
 		return dsSenha;
 	}
+
 	public void setDsSenha(String dsSenha) {
 		this.dsSenha = dsSenha;
 	}
-<<<<<<< HEAD
+
 	public List<Horario> getHorarios() {
 		return horarios;
 	}
+
 	public void setHorarios(List<Horario> horarios) {
 		this.horarios = horarios;
 	}
-=======
->>>>>>> 21741b77af8f4d3f753f88c5ae634fa3dd323866
 }
