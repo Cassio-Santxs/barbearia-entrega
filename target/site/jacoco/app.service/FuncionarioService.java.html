@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FuncionarioService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">App</a> &gt; <a href="index.source.html" class="el_package">app.service</a> &gt; <span class="el_source">FuncionarioService.java</span></div><h1>FuncionarioService.java</h1><pre class="source lang-java linenums">package app.service;
+
+import java.util.List;
+
+import javax.management.RuntimeErrorException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import app.entity.Funcionario;
+import app.repository.FuncionarioRepository;
+
+@Service
+<span class="fc" id="L14">public class FuncionarioService {</span>
+	
+	
+	@Autowired
+	private FuncionarioRepository repository;
+	
+	public String save(Funcionario obj) {
+		
+<span class="fc bfc" id="L22" title="All 2 branches covered.">		if(obj == null)</span>
+<span class="fc" id="L23">			throw new RuntimeException();</span>
+		
+<span class="fc" id="L25">		this.repository.save(obj);</span>
+<span class="fc" id="L26">		return (&quot;Salvo com sucesso!&quot;);</span>
+	}
+	
+	
+	
+	public List&lt;Funcionario&gt; listAll(){
+		
+<span class="fc" id="L33">		return this.repository.findAll();</span>
+	}
+	public String deleteById(long idFuncionario) {
+		
+<span class="fc" id="L37">		this.repository.deleteById(idFuncionario);</span>
+<span class="fc" id="L38">		return (&quot;Deletado com sucesso!&quot;);</span>
+		
+	}
+	public String update(Funcionario funcionario, long idFuncionario) {
+		
+<span class="fc" id="L43">		funcionario.setIdFuncionario(idFuncionario);</span>
+<span class="fc" id="L44">		this.repository.save(funcionario);</span>
+<span class="fc" id="L45">		return(&quot;Atualizado com sucesso!&quot;);</span>
+	}
+	public Funcionario findById(long idFuncionario) {
+		
+<span class="fc" id="L49">		Funcionario funcionario = this.repository.findById(idFuncionario).get();</span>
+<span class="fc" id="L50">		return funcionario;</span>
+	}
+	public List&lt;Funcionario&gt; findByNmFuncionario(String nmFuncionario){
+		
+<span class="nc" id="L54">		List&lt;Funcionario&gt; lista = this.repository.findByNmFuncionario(nmFuncionario);</span>
+<span class="nc" id="L55">		return lista;</span>
+		
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
