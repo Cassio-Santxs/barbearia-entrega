@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
+	<name>App</name>
+=======
 	<name>barbearia</name>
+>>>>>>> 4cdfa7cc5163000d0f95ffe780c7db7ac7c5a176
 	<comment></comment>
 	<projects>
 	</projects>
