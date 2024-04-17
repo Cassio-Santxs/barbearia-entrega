@@ -38,6 +38,7 @@ public class Horario {
 	private double vlHorario;
 	
 	@OneToOne(mappedBy = "horario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("horario")
 	private Pagamento pagamento;
 	
 	public long getIdHorario() {

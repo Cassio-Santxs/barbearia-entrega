@@ -2,30 +2,62 @@ package app.entity;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Pagamento {
 
 	@Id
-	@NotNull
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPagamento;
 	
 	@NotNull(message = "Digite a Data de pagamento!")
 	private LocalDateTime dtPagamento;
 	
-	@NotNull(message = "Digite o Id Horario Correto!!")
-	private Long idHorario;
+	@NotNull(message = "Informe o horário do pagamento!")
+	@OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idHorario", referencedColumnName = "idHorario")
+	@JsonIgnoreProperties("pagamento")
+	private Horario horario;
 	
-	@NotNull(message = "Digite o Id Forma de Pagamento Correto!!")
-	private Long idFormaPagamento;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idFormaPagto")
+	@JsonIgnoreProperties("pagamentos")
+	@NotNull(message = "Informe a forma de pagamento!")
+	private FormaPagamento formaPagamento;
 	
-	@NotNull (message = "Digite a situação correta!!")
+	@NotBlank(message = "Informe a situação do paganento!")
 	private String dsSituacao;
 
 	
+	public Horario getHorario() {
+		return horario;
+	}
+
+	public void setHorario(Horario horario) {
+		this.horario = horario;
+	}
+
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
+
+
 	
 	public Long getIdPagamento() {
 		return idPagamento;
@@ -43,21 +75,6 @@ public class Pagamento {
 		this.dtPagamento = dtPagamento;
 	}
 
-	public Long getIdHorario() {
-		return idHorario;
-	}
-
-	public void setIdHorario(Long idHorario) {
-		this.idHorario = idHorario;
-	}
-
-	public Long getIdFormaPagamento() {
-		return idFormaPagamento;
-	}
-
-	public void setIdFormaPagamento(Long idFormaPagamento) {
-		this.idFormaPagamento = idFormaPagamento;
-	}
 
 	public String getDsSituacao() {
 		return dsSituacao;
